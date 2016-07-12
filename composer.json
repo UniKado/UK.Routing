@@ -1,0 +1,23 @@
+{
+    "name": "uk/routing",
+    "description": "The small UniKado URL routing library.",
+    "authors": [
+        {
+            "name": "UniKado",
+            "email": "unikado+pubcode@protonmail.com"
+        }
+    ],
+    "license": "LGPLv3",
+    "require": {
+        "php": ">=7.0",
+        "uk/core.errors": "^0.1.1",
+        "uk/dynamic-properties": "^0.2.0"
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "autoload": {
+        "psr-0": {
+            "UK\\Routing\\": "src/"
+        }
+    }
+}
