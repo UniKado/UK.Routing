@@ -15,7 +15,7 @@ or include it inside you're composer.json
 {
    "require": {
       "php": ">=7.0",
-      "uk/router": "^0.1.0"
+      "uk/routing": "^0.1.0"
    }
 }
 ```
