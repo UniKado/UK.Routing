@@ -38,7 +38,7 @@ Create an file with the name `.htaccess` and put it to the folder where the rewr
 
 But remember!
 
-.htaccess (distributed configuration files) should only be used if you dont have access to the server configuration files.
+.htaccess (distributed configuration files) should only be used if you do'nt have access to the server configuration files.
 
 .htaccess usage comes with some overhead which can be avoided.
 
@@ -52,7 +52,7 @@ The contents of this file depends to the Router type that should be used.
 RewriteEngine On
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
-RewriteRule ^([A-Za-z0-9\ _/:.-]+)$ index.php?theURL=$1 [QSA,L]
+RewriteRule ^(.+)$ index.php?theURL=$1 [QSA,L]
 ```
 
 The first line enables the rewrite engine. Second line declares the condition that matches all not existing file calls
@@ -155,7 +155,7 @@ $router->addRoute(
 
 ```
 
-After defining you're routes you only should call execute() and youre route will be executed.
+After defining you're routes you only should call execute() and the routes will be executed.
 
 ```php
 if ( ! $router->execute() )
