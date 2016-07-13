@@ -4,7 +4,7 @@
  * @copyright  (c) 2016, UniKado
  * @package        UK\Routing
  * @since          2016-07-11
- * @version        0.1.0
+ * @version        0.1.1
  */
 
 
@@ -99,6 +99,8 @@ class Router extends ExplicitGetterSetter
     * @var array
     */
    private $routes = [];
+
+   private $staticRoutes = [];
 
    # </editor-fold>
 
@@ -386,9 +388,8 @@ class Router extends ExplicitGetterSetter
          throw new UKException( 'Can not assign a Router route that is not of callable type!' );
       }
 
-      $uriFormat = '~^(' . \preg_quote( \trim( $routeString, '/' ), '~' ) . ')$~';
-
-      $this->routes[ $uriFormat ] = $routeCallback;
+      $this->staticRoutes[ '/' . trim( $routeString, '/' ) ] = $routeCallback;
+      $this->staticRoutes[ '/' . trim( $routeString, '/' ) . '/' ] = $routeCallback;
 
       return $this;
 
@@ -404,6 +405,15 @@ class Router extends ExplicitGetterSetter
    {
 
       $matches = null;
+
+      foreach ( $this->staticRoutes as $uriPath => $callback )
+      {
+         if ( $this->properties[ 'requestUrlPath' ] === $uriPath )
+         {
+            \call_user_func( $callback );
+            return true;
+         }
+      }
 
       foreach ( $this->routes as $uriRegex => $callback )
       {

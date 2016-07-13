@@ -4,7 +4,7 @@
  * @copyright  (c) 2016, UniKado
  * @package        UK\Routing
  * @since          2016-07-11
- * @version        0.1.0
+ * @version        0.1.1
  */
 
 namespace UK\Routing;
