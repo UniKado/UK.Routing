@@ -4,7 +4,7 @@
  * @copyright  (c) 2016, UniKado
  * @package        UK\Routing
  * @since          2016-07-11
- * @version        0.1.1
+ * @version        0.1.2
  */
 
 
@@ -268,8 +268,14 @@ class Router extends ExplicitGetterSetter
          return;
       }
 
+      // Remove URL-Parameters
+      $urlData = \explode( '?', $urlData, 2 )[ 0 ];
+
+      // Remove Anchor
+      $urlData = \explode( '#', $urlData, 2 )[ 0 ];
+
       // Remove some bad characters
-      $urlData = \preg_replace( '#[^A-Za-z0-9_.:/!~-]+#', '', $urlData );
+      $urlData = \preg_replace( '#[^A-Za-z0-9_,.:/!~-]+#', '', $urlData );
 
       // Fix multiple following dots .. or slashes // to its single representation (Not allows ../../hidden)
       $urlData = \trim(
