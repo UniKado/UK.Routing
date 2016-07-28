@@ -4,7 +4,7 @@
  * @copyright  (c) 2016, UniKado
  * @package        UK\Routing
  * @since          2016-07-11
- * @version        0.1.2
+ * @version        0.1.3
  */
 
 
@@ -245,7 +245,7 @@ class Router extends ExplicitGetterSetter
          {
             // Using $_SERVER[ 'REQUEST_URI' ]
             $urlData = \preg_replace(
-               '#[^A-Za-z0-9_.:/!~-]+#',
+               '#[^A-Za-z0-9_.,:/!~-]+#',
                '',
                \trim( $_SERVER[ 'REQUEST_URI' ], '/' )
             );
